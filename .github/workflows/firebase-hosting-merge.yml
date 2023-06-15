@@ -3,7 +3,7 @@ name: Lint, Build, Test & Deploy
 on: [push, pull_request]
 
 jobs:
-  lint_and_build:
+  lint_build_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,14 +32,19 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+  build_deploy:
+    needs: lint_build_test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Build project
         run: yarn build
 
-      - name: Deploy to firebase
-        if: ${{ github.ref == 'refs/heads/main' }}
+      - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEAFLAB_XYZ }}"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEAFLAB_XYZ }}
           projectId: leaflab-xyz
           channelId: preview-1
