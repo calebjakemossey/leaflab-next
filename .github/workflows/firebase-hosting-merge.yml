@@ -1,9 +1,6 @@
 name: Lint and Build
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   lint_and_build:
@@ -29,6 +26,10 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env: CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: "Deploy to firebase"
         uses: FirebaseExtended/action-hosting-deploy@v0
