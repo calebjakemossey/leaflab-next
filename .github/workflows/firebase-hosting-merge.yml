@@ -36,6 +36,7 @@ jobs:
         run: yarn build
 
       - name: Deploy to firebase
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
