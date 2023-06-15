@@ -3,7 +3,7 @@ name: Lint, Build, Test & Deploy
 on: [push, pull_request]
 
 jobs:
-  lint_build_test:
+  lint_build_test_deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,16 +32,12 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-  build_deploy:
-    needs: lint_build_test
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Build project
+        if: github.ref == 'refs/heads/main'
         run: yarn build
 
       - name: Deploy to Firebase
+        if: github.ref == 'refs/heads/main'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
