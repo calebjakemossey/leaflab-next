@@ -41,3 +41,4 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEAFLAB_XYZ }}"
           projectId: leaflab-xyz
+          channelId: preview-1
