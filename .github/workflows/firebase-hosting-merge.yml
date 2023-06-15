@@ -24,13 +24,16 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Build
-        run: yarn build
+      - name: Test
+        run: yarn test
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Build
+        run: yarn build
 
       - name: Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
