@@ -1,6 +1,7 @@
 # leaflab-next
 
 [![codecov](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graph/badge.svg?token=18R04BFH3C)](https://codecov.io/gh/calebjakemossey/leaflab-next)
+
 🎉 Congratulations, your project was successfully generated with [Create Next Stack](https://www.create-next-stack.com/)!
 
 To get started, run:
@@ -12,13 +13,10 @@ yarn dev
 ## Code Coverage
 
 ![Sunburst Graph of Code Coverage](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/sunburst.svg?token=18R04BFH3C)
-<img src="https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/sunburst.svg?token=18R04BFH3C">
 
 ![Grid Graph of Code Coverage](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/tree.svg?token=18R04BFH3C)
-<img src="https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/tree.svg?token=18R04BFH3C">
 
 ![Icicle Graph of Code Coverage](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/icicle.svg?token=18R04BFH3C)
-<img src="https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/icicle.svg?token=18R04BFH3C">
 
 ## Scripts
 
