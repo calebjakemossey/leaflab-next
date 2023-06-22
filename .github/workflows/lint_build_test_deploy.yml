@@ -25,7 +25,7 @@ jobs:
         run: yarn lint
 
       - name: Test project without blocking
-        run: yarn test ----testFailureExitCode 0
+        run: yarn test
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
