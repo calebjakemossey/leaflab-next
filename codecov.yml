@@ -2,14 +2,10 @@ coverage:
   status:
     project:
       default:
-        # basic
         target: 100%
-        threshold: 0%
-        flags:
-          - unit
-        if_ci_failed: error #success, failure, error, ignore
-        informational: false
-        only_pulls: false
+    patch:
+      default:
+        target: 100%
 
 comment: # this is a top-level key
   layout: "reach, diff, flags, files"
