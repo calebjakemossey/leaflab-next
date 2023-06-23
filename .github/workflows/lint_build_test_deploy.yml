@@ -1,6 +1,6 @@
 name: Lint, Build, Test & Deploy
 
-on: [push, pull_request]
+on: pull_request
 
 jobs:
   lint_build_test_deploy:
