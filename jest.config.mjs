@@ -18,6 +18,8 @@ const config = {
     "!./.next/**",
     "!./*.config.js",
     "!./coverage/**",
+    "!./pages/_document.tsx",
+    "!./pages/_app.tsx",
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
