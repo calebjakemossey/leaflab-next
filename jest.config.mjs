@@ -20,6 +20,7 @@ const config = {
     "!./coverage/**",
     "!./pages/_document.tsx",
     "!./pages/_app.tsx",
+    "!./firebase/*",
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
