@@ -1,60 +1,48 @@
-# leaflab-next
+# Supabase Starter
 
-[![codecov](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graph/badge.svg?token=18R04BFH3C)](https://codecov.io/gh/calebjakemossey/leaflab-next)
+This starter configures Supabase Auth to use cookies, making the user's session available throughout the entire Next.js app - Client Components, Server Components, Route Handlers, Server Actions and Middleware.
 
-🎉 Congratulations, your project was successfully generated with [Create Next Stack](https://www.create-next-stack.com/)!
+## Deploy your own
 
-To get started, run:
+The Vercel deployment will guide you through creating a Supabase account and project. After installation of the Supabase integration, all relevant environment variables will be set up so that the project is usable immediately after deployment 🚀
 
-```bash
-yarn dev
-```
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&integration-ids=oac_jUduyjQgOyzev1fjrW83NYOv)
 
-## Code Coverage
+## How to use
 
-![Sunburst Graph of Code Coverage](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/sunburst.svg?token=18R04BFH3C)
+1. Create a [new Supabase project](https://database.new)
+1. Run `npx create-next-app -e with-supabase` to create a Next.js app using the Supabase Starter template
+1. Use `cd` to change into the app's directory
+1. Run `npm install` to install dependencies
+1. Rename `.env.local.example` to `.env.local` and update the values for `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` from [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
+1. Run `npm run dev` to start the local development server
 
-![Grid Graph of Code Coverage](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/tree.svg?token=18R04BFH3C)
+> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
 
-![Icicle Graph of Code Coverage](https://codecov.io/gh/calebjakemossey/leaflab-next/branch/main/graphs/icicle.svg?token=18R04BFH3C)
+### Create a Supabase client
 
-## Scripts
+Check out the [`/app/_examples`](./app/_examples/) folder for an example of creating a Supabase client in:
 
-The table below provides names and descriptions of the npm scripts available in this project.
+- [Client Components](./app/_examples/client-component/page.tsx)
+- [Server Components](./app/_examples/server-component/page.tsx)
+- [Route Handlers](./app/_examples/route-handler/route.ts)
+- [Server Actions](./app/_examples/server-action/page.tsx)
 
-Each script is run using `yarn <script-name>`. For example: `yarn dev`.
+### Create `todo` table and seed with data (optional)
 
-| Name           | Description                                                                                                                                                                                                                                     |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `prepare`      | The [`prepare` life cycle script](https://docs.npmjs.com/cli/v7/using-npm/scripts#life-cycle-scripts) is used to set up Git pre-commit hooks when people install dependencies, eg. using `npm install`. This script should not be run manually. |
-| `test`         | Runs tests                                                                                                                                                                                                                                      |
-| `dev`          | Runs the Next.js development server.                                                                                                                                                                                                            |
-| `build`        | Generates a production build.                                                                                                                                                                                                                   |
-| `start`        | Runs the Next.js production server built using `build` script.                                                                                                                                                                                  |
-| `lint`         | Runs [ESLint](https://eslint.org/) to catch linting errors in the source code.                                                                                                                                                                  |
-| `format`       | Formats all source code in the project.                                                                                                                                                                                                         |
-| `format:check` | Checks the formatting of all code in the project.                                                                                                                                                                                               |
+Navigate to [your project's SQL Editor](https://app.supabase.com/project/_/sql), click `New query`, paste the contents of the [init.sql](./supabase/migrations/20230618024722_init.sql) file and click `RUN`.
 
-## Technologies
+This will create a basic `todos` table, enable Row Level Security (RLS), and write RLS policies enabling `select` and `insert` actions for `authenticated` users.
 
-The table below gives an overview of the technologies used in this project, as well as places to learn more about them.
+To seed your `todos` table with some dummy data, run the contents of the [seed.sql](./supabase/seed.sql) file.
 
-| Name            | Links                                                                                                                                                                                                           |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Next.js         | [Website](https://nextjs.org/) - [Docs](https://nextjs.org/docs) - [Learn Next.js](https://nextjs.org/learn) - [GitHub](https://github.com/vercel/next.js) - [Wikipedia](https://en.wikipedia.org/wiki/Next.js) |
-| React           | [Website](https://reactjs.org/) - [Docs](https://reactjs.org/docs/getting-started.html) - [GitHub](https://github.com/facebook/react) - [Wikipedia](<https://en.wikipedia.org/wiki/React_(JavaScript_library)>) |
-| TypeScript      | [Website](https://www.typescriptlang.org/) - [Docs](https://www.typescriptlang.org/docs/) - [GitHub](https://github.com/microsoft/TypeScript) - [Wikipedia](https://en.wikipedia.org/wiki/TypeScript)           |
-| Emotion         | [Website](https://emotion.sh/) - [Docs](https://emotion.sh/docs/introduction) - [GitHub](https://github.com/emotion-js/emotion)                                                                                 |
-| Mantine         | [Website](https://mantine.dev/) - [Docs](https://mantine.dev/pages/getting-started/) - [GitHub](https://github.com/mantinedev/mantine)                                                                          |
-| Framer Motion   | [Website](https://www.framer.com/motion/) - [Docs](https://www.framer.com/docs/) - [GitHub](https://github.com/framer/motion)                                                                                   |
-| React Hook Form | [Website](https://react-hook-form.com/) - [Docs](https://react-hook-form.com/get-started) - [GitHub](https://github.com/react-hook-form/react-hook-form)                                                        |
-| React Query     | [Website](https://tanstack.com/query/latest) - [Docs](https://tanstack.com/query/latest/docs/react/overview) - [GitHub](https://github.com/tanstack/query)                                                      |
-| React Icons     | [Website](https://react-icons.github.io/react-icons/) - [GitHub](https://github.com/react-icons/react-icons)                                                                                                    |
-| ESLint          | [Website](https://eslint.org/) - [Configuration](https://eslint.org/docs/user-guide/configuring/) - [Rules](https://eslint.org/docs/rules/) - [GitHub](https://github.com/eslint/eslint)                        |
-| Prettier        | [Website](https://prettier.io/) - [Docs](https://prettier.io/docs/en/index.html) - [Options](https://prettier.io/docs/en/options.html) - [GitHub](https://github.com/prettier/prettier)                         |
-| Husky           | [Website](https://typicode.github.io/husky/) - [Docs](https://typicode.github.io/husky/) - [GitHub](https://github.com/typicode/husky)                                                                          |
-| lint-staged     | [Website](https://github.com/okonet/lint-staged) - [GitHub](https://github.com/okonet/lint-staged)                                                                                                              |
-| Yarn            | [Website](https://yarnpkg.com/) - [CLI Docs](https://yarnpkg.com/cli) - [GitHub](https://github.com/yarnpkg/berry)                                                                                              |
-| GitHub Actions  | [Website](https://github.com/features/actions) - [Docs](https://docs.github.com/en/actions) - [Workflow syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)                |
+## Feedback and issues
 
-# leaflab-next
+Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+
+## More Supabase examples
+
+- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
+- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
+- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+- [Next.js Auth Helpers Docs](https://supabase.com/docs/guides/auth/auth-helpers/nextjs)
